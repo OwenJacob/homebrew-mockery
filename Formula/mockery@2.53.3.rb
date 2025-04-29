@@ -17,10 +17,9 @@ class MockeryAT2533 < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/vektra/mockery/v2/pkg/logging.SemVer=v#{version}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", "-trimpath", "-o", "bin/mockery", "-ldflags", "-s -w -X github.com/vektra/mockery/v2/pkg/logging.SemVer=v#{version}"
 
-    generate_completions_from_executable(bin/"mockery", "completion")
+    generate_completions_from_executable("bin/mockery", "completion")
   end
 
   test do
