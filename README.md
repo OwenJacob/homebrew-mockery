@@ -1,4 +1,4 @@
-# Homebrew Package Acrhive For Mockery
+# Homebrew Package Archive For Mockery
 
 This repo provides a homebrew tap and formulae for historical versions of the [Mockery package](https://github.com/vektra/mockery)
 
