@@ -4,7 +4,7 @@ class MockeryAT2320 < Formula
   url "https://github.com/vektra/mockery/archive/refs/tags/v2.32.0.tar.gz"
   sha256 "1252e562ccf874195044ef061be5a3e9897625acb57d75ad82c7ce7fd59d0ba6"
   license "BSD-3-Clause"
-  head "https://github.com/vektra/mockery.git", branch: "master"
+  head "https://github.com/vektra/mockery.git", branch: "v3"
 
   livecheck do
     url :stable
