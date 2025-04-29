@@ -14,20 +14,11 @@ class MockeryAT2533 < Formula
     strategy :github_latest
   end
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a13707021e83660f528c699c1937d5ab11da18dcb1d0056896f1bc52dddcf2fd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a13707021e83660f528c699c1937d5ab11da18dcb1d0056896f1bc52dddcf2fd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a13707021e83660f528c699c1937d5ab11da18dcb1d0056896f1bc52dddcf2fd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2390ca1d351b61904519f37727122a4e32a923841e8dfc375108eedd74690c34"
-    sha256 cellar: :any_skip_relocation, ventura:       "2390ca1d351b61904519f37727122a4e32a923841e8dfc375108eedd74690c34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0048be149f00ace3c36c02e0fa566694acc57a8a3a063bbfd7d3ac55121ec27"
-  end
-
   depends_on "go" => :build
 
   def install
     ldflags = "-s -w -X github.com/vektra/mockery/v2/pkg/logging.SemVer=v#{version}"
-    system "go", "build", *std_go_args(ldflags:)
+    system "go", "build", "-ldflags", ldflags:
 
     generate_completions_from_executable(bin/"mockery", "completion")
   end
